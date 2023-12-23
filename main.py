@@ -3,7 +3,6 @@ from sys import argv
 
 if __name__ == '__main__':
     filename = argv
-
     try:
         check_file = os.path.exists(filename[1])
         if check_file:
