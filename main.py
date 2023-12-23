@@ -25,13 +25,20 @@ if __name__ == '__main__':
                 if first_index != -1 and last_index != -1:
                     path_in = temp[first_index:]
                     path_out = temp[:last_index]
-                    path_out = path_out[first_index:] + '/'
-                    path_in = path_in.split('.', 1)[0]
+                    path_out = 'buildlib_out/' + path_out[first_index:] + '/'
+                    #path_in = path_in.split('.', 1)[0]
+                    last_point = path_in.rfind('.')
+                    path_in = path_in[:last_point]
                     path_in = path_in + '*'
                 print(path_in)
-                print(path_out)
-                check_file = os.path.exists("buildlib_out/"+path_out)
+                check_file = os.path.exists(path_out)
                 if not check_file:
-                    os.system('mkdir -p '+path_out)
+                    command = 'mkdir -p '+ path_out
+                    os.system(command)
+                    command = 'cp ' + path_in + ' ' + path_out
+                    os.system(command)
+                else:
+                    command = 'cp ' + path_in + ' ' + path_out
+                    os.system(command)
     except:
         print("Не указано имя файла или такого файла нет ...")
