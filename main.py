@@ -19,14 +19,14 @@ if __name__ == '__main__':
 
             with open('out.tmp', 'r') as file:
                 lines = file.readlines()
+            os.system('rm out.tmp')
             for temp in lines:
                 first_index = temp.find('/')
                 last_index = temp.rfind('/')
                 if first_index != -1 and last_index != -1:
                     path_in = temp[first_index:]
                     path_out = temp[:last_index]
-                    path_out = 'buildlib_out/' + path_out[first_index:] + '/'
-                    #path_in = path_in.split('.', 1)[0]
+                    path_out = 'buildlib_out_' + filename[1] + '/' + path_out[first_index:] + '/'
                     last_point = path_in.rfind('.')
                     path_in = path_in[:last_point]
                     path_in = path_in + '*'
