@@ -29,6 +29,8 @@ if __name__ == '__main__':
                     path_out = 'buildlib_out_' + filename[1] + '/' + path_out[first_index:] + '/'
                     last_point = path_in.rfind('.')
                     path_in = path_in[:last_point]
+                    #last_point = path_in.rfind('.')
+                    #path_in = path_in[:last_point]
                     path_in = path_in + '*'
                 print(path_in)
                 check_file = os.path.exists(path_out)
