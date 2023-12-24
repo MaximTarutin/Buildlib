@@ -1,0 +1,22 @@
+name: buildlib
+summary: копирование зависимостей для файла
+description: |
+     Копирует необходимые для файла зависимости
+     в отдельный каталог.
+version: test
+grade: stable
+confinement: strict
+base: core22
+
+apps:
+  buildlib:
+    command: bin/main
+    plugs: [home, network, network-bind, removable-media]
+
+parts:
+  buildlib:
+    plugin: python
+    source: https://github.com/MaximTarutin/Buildlib
+    source-type: git
+
+
